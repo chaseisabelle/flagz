@@ -35,6 +35,9 @@ jobs:
 
     - name: vet
       run: go vet -v -race .
+
+    - name: test
+      run: go test -v -race .
     
     - name: run
       run: go run example/main.go

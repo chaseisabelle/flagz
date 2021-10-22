@@ -157,10 +157,11 @@ func TestFloatz(t *testing.T) {
 
 func TestString(t *testing.T) {
 	exp := "bar"
+	key := "string"
 
-	flag.String("foo", "", "test")
+	flag.String(key, "", "test")
 
-	err := flag.Set("foo", exp)
+	err := flag.Set(key, exp)
 
 	if err != nil {
 		t.Error(err)
@@ -168,7 +169,7 @@ func TestString(t *testing.T) {
 
 	flag.Parse()
 
-	act, err := String("foo")
+	act, err := String(key)
 
 	if err != nil {
 		t.Error(err)
@@ -180,11 +181,12 @@ func TestString(t *testing.T) {
 }
 
 func TestBool(t *testing.T) {
+	key := "bool"
 	exp := true
 
-	flag.Bool("foo", false, "test")
+	flag.Bool(key, false, "test")
 
-	err := flag.Set("foo", "1")
+	err := flag.Set(key, "1")
 
 	if err != nil {
 		t.Error(err)
@@ -192,7 +194,7 @@ func TestBool(t *testing.T) {
 
 	flag.Parse()
 
-	act, err := Bool("foo")
+	act, err := Bool(key)
 
 	if err != nil {
 		t.Error(err)
@@ -204,11 +206,12 @@ func TestBool(t *testing.T) {
 }
 
 func TestInt(t *testing.T) {
+	key := "int"
 	exp := 5
 
-	flag.Int("foo", 0, "test")
+	flag.Int(key, 0, "test")
 
-	err := flag.Set("foo", strconv.Itoa(exp))
+	err := flag.Set(key, strconv.Itoa(exp))
 
 	if err != nil {
 		t.Error(err)
@@ -216,7 +219,7 @@ func TestInt(t *testing.T) {
 
 	flag.Parse()
 
-	act, err := Int("foo")
+	act, err := Int(key)
 
 	if err != nil {
 		t.Error(err)
@@ -228,11 +231,12 @@ func TestInt(t *testing.T) {
 }
 
 func TestFloat(t *testing.T) {
+	key := "float"
 	exp := 1.23
 
-	flag.Int("foo", 0, "test")
+	flag.Float64(key, 0, "test")
 
-	err := flag.Set("foo", fmt.Sprintf("%f", exp))
+	err := flag.Set(key, fmt.Sprintf("%f", exp))
 
 	if err != nil {
 		t.Error(err)
@@ -240,7 +244,7 @@ func TestFloat(t *testing.T) {
 
 	flag.Parse()
 
-	act, err := Float("foo")
+	act, err := Float(key)
 
 	if err != nil {
 		t.Error(err)
